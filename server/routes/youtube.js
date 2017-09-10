@@ -13,10 +13,10 @@ let express = require('express'),
 
 router.get('/', (req, res) => {
 
-    console.log('youtube URL hit');
+    console.log('youtube a hit');
 
 
-    youTube.search('daca', 10, function(error, result) {
+    youTube.search('logan paul', 10, function(error, result) {
         if (error) {
           console.log(error);
         }

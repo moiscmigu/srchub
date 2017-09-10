@@ -13,7 +13,42 @@ class Giphy extends React.Component {
     console.log('clicked', this)
 
     this.props.giphyAction();
+    this.showGifs();
    }//end of startGiphy
+
+   showGifs() {
+       console.log(this.props.giphyImage.giphy)
+       let results = this.props.giphyImage.giphy;
+
+    if(results.length === 0 || results === undefined) {
+        return (
+            <h1>No gifs yet</h1>
+        ) 
+    } else {
+        return (
+            <div >
+                {
+                    results.map((r, i) => {
+                        console.log('inisde of the first loop', r.data)
+                        return(
+
+                        
+                        r.data.map((t, j) => {
+                            console.log('inside of the second loop', t.images.downsized.url)
+                            return (
+                                    <img src={t.images.downsized.url} alt="gifs"/>
+
+                            )
+                        })
+                        )
+                    })
+                }    
+            </div>
+           
+        );
+    }
+
+   }
 
     render(){
        
@@ -21,6 +56,7 @@ class Giphy extends React.Component {
         return(
             <div>
                 <button onClick={() => this.startGiphy()} >Giphy</button>
+                {this.showGifs()}
             </div>
         );
     }
@@ -35,7 +71,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        gihpy:state
+        giphyImage:state
     }
 }
 

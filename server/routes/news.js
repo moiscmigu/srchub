@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
         url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
         qs: {
           'api-key': "91a40969c2094a5abea86ce33aa94e89",
-          'q': "mexico earthquake"
+          'q': "batman"
         },
       }, function(err, response, body) {
         body = JSON.parse(body);

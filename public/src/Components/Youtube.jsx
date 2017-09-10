@@ -10,9 +10,10 @@ class Youtube extends React.Component {
     handleYoutube() {
         console.log('cliked', this);
         this.props.youtubeAction();
-        
-        
-    }
+
+    }//end of handleYoutube;
+
+
 
     showVideos() {
         let vids =this.props.youtubeVideos.youtube;

@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
     
 
 
-    T.get('search/tweets', { q: 'mexico earthquake', count: counter }, function(err, data, response) {
+    T.get('search/tweets', { q: 'batman', count: counter }, function(err, data, response) {
         res.send(data.statuses);
     });
 
