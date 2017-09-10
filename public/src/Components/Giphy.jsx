@@ -7,17 +7,25 @@ import {bindActionCreators} from 'redux';
 class Giphy extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            giphy:''
+        };
     }
     
    startGiphy() {
-    console.log('clicked', this)
 
-    this.props.giphyAction();
+
+    this.props.giphyAction().then(() => {
+        console.log('asdkfjbjkashdbfkjasdbmfknjhsvdfkxjv abdk');
+    });
+
+    
+
     this.showGifs();
    }//end of startGiphy
 
    showGifs() {
-       console.log(this.props.giphyImage.giphy)
+ 
        let results = this.props.giphyImage.giphy;
 
     if(results.length === 0 || results === undefined) {
@@ -26,15 +34,14 @@ class Giphy extends React.Component {
         ) 
     } else {
         return (
-            <div >
+            <div id='giphy-container'>
                 {
                     results.map((r, i) => {
-                        console.log('inisde of the first loop', r.data)
                         return(
 
                         
                         r.data.map((t, j) => {
-                            console.log('inside of the second loop', t.images.downsized.url)
+
                             return (
                                     <img src={t.images.downsized.url} alt="gifs"/>
 
@@ -54,8 +61,9 @@ class Giphy extends React.Component {
        
         
         return(
-            <div>
+            <div id = 'giphy'>
                 <button onClick={() => this.startGiphy()} >Giphy</button>
+
                 {this.showGifs()}
             </div>
         );

@@ -11,12 +11,12 @@ let express = require('express'),
     
 
 
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
 
     console.log('youtube a hit');
 
 
-    youTube.search('logan paul', 10, function(error, result) {
+    youTube.search(req.body.vids, 10, function(error, result) {
         if (error) {
           console.log(error);
         }

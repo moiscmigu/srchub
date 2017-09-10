@@ -4,19 +4,19 @@ let express = require('express'),
 
 
 
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
 
-    console.log('giphy URL hit');
-    request.get("http://api.giphy.com/v1/gifs/search?q=logan paul&api_key=83fbe86921c645bab3cfb33e4c1a15af&limit=5", (err, response) => {
-        console.log('back from the server with',response )
+    console.log('giphy URL hit', req.body.search);
+    request.get("http://api.giphy.com/v1/gifs/search?q=" + req.body.search + "&api_key=83fbe86921c645bab3cfb33e4c1a15af&limit=4", (err, response) => {
+
         res.send(response);
-    })
-        
-
-    
+    }); //end of request
 
 
-});
+
+
+
+}); //end of post
 
 
 module.exports = router;

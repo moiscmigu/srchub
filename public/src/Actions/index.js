@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const tweet = () => {
-    const request = axios.get('/tweet');
+export const tweet = (search) => {
+    const request = axios.post('/tweet', {tweet:search});
 
     return (dispatch) => {
         request.then(data => {
@@ -10,8 +10,8 @@ export const tweet = () => {
     };
 };
 
-export const news = () => {
-    const request = axios.get('/news');
+export const news = (search) => {
+    const request = axios.post('/news', {news:search});
 
     return (dispatch) => {
         request.then(data => {
@@ -20,8 +20,8 @@ export const news = () => {
     };
 };
 
-export const youtubeAction = () => {
-    const request = axios.get('/youtube');
+export const youtubeAction = (search) => {
+    const request = axios.post('/youtube', {vids:search});
     
     return (dispatch) => {
         request.then(data => {
@@ -30,11 +30,12 @@ export const youtubeAction = () => {
     };
 };
 
-export const giphyAction = () => {
-    const request = axios.get('/giphy');
-    
+export const giphyAction = (userSearch) => {
+    const request = axios.post('/giphy', {search:userSearch});
+    console.log('text in Action', userSearch);
     return (dispatch) => {
         request.then(data => {
+            console.log('the giphy data', data);
             dispatch({type:"GIPHY", payload:data});
         });
     };

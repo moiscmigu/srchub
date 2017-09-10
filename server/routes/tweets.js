@@ -13,14 +13,14 @@ let T = new Twit({
 
 
 
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
     
     let counter = Math.floor(Math.random() * 50)
-    console.log(counter);
+    console.log('TWEET URL HIT', req.body)
     
 
 
-    T.get('search/tweets', { q: 'batman', count: counter }, function(err, data, response) {
+    T.get('search/tweets', { q: req.body.tweet, count: counter }, function(err, data, response) {
         res.send(data.statuses);
     });
 

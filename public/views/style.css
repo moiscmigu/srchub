@@ -1,31 +1,21 @@
-.tweets-container {
-    height:41em;
-    width: 100vw;
-    border:1px solid pink;
+#giphy {
+    border:1px solid red;
+    height: 40vh;
+    width:100vw;
     overflow: scroll;
-    display: flex;
-    flex-direction: column-reverse;
 }
 
-.tweets-container-2 {
-    height:41em;
-    width: 100vw;
-    border:1px solid pink;
-    overflow: scroll;
-    
+#giphy-container {
+    border:2px solid blue;
+    height: inherit;
+    width: inherit;
 }
 
-.tweets {
-    margin:1em;
-    padding:1em;
-}
-
-.tweetDate {
-    float: right;
-}
-
-
-#imgGif {
-    height: 100px;
-    width: 100px;
+#giphy-container img{
+    border:2px solid pink;
+    margin-right:3em;
+    padding: 0;
+    display: inline-block;
+    height: 20em;
+    width:20em;
 }
