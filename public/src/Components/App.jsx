@@ -73,8 +73,8 @@ class App extends React.Component {
         var interval = setTimeout(this.startTweet.bind(this), 300000);
         
         return(
-            <div>
-                <button onClick={() => this.startTweet(interval)} >Start</button>
+            <div  className='container' id='tweetsComponent'>
+                <h1>TWEETS</h1>
                {this.showTweets()}
             </div>
         );

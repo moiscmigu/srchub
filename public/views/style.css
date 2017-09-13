@@ -1,3 +1,7 @@
+body {
+    background-color: #3f30eb;
+}
+
 #giphy {
     border:1px solid red;
     height: 40vh;
@@ -18,4 +22,46 @@
     display: inline-block;
     height: 20em;
     width:20em;
+}
+
+#logo {
+
+    display: inline-block;
+    padding:0;
+    height:7em;
+    position: absolute;
+    margin:4em;
+    top:-12%;
+    left:-4.9em;
+
+  
+}
+
+.header {
+
+   margin-top:3em;
+}
+
+
+#tweetsComponent {
+
+    height:30em;
+    overflow: scroll;
+}
+
+
+.tweets {
+    margin: 1.5em;
+    color:white;
+}
+
+.tweetsB {
+    overflow-y: scroll
+}
+
+.youtubeB {
+    border: 1px solid white;
+    height:30em;
+    overflow-y: scroll;
+    overflow-x: scroll;
 }

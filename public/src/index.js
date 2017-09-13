@@ -21,12 +21,31 @@ const store = createStore(Reducer, applyMiddleware(thunk));
 
 render(
     <Provider store = {store}>
-        <div>
-            <Header/>
-            <Giphy/>    
-            <News/> 
-            <App/>
-            <Youtube/>
+         
+        <div className="container">
+            <div className='row' >
+                <div className='col-md-12' >
+                <Header />
+                </div>
+
+            </div>
+            <div className = 'row' >
+                <div className="col-md-6 tweetsB" >
+                    <App/>
+                </div>
+
+                <div className="col-md-6">
+                    <News/>
+                </div>
+            </div>
+            <div className = 'row' >
+                <div className="col-md-12 youtubeB" >
+                    <Youtube/>
+                </div>
+
+                
+            </div>
+           
          
         </div>
         

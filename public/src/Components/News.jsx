@@ -64,7 +64,7 @@ class News extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.start.bind(this)}>Start</button>
+                <h1>NEW YORK TIMES</h1>
                 {this.showNews()}
             </div>  
         );//end of return

@@ -52,8 +52,7 @@ class Youtube extends React.Component {
     render() {
         return (
             <div>
-                <h1>Hello YOutube</h1>
-                <button onClick={this.handleYoutube.bind(this)} >Youtube</button>
+                <h1>Youtube</h1>
                 {this.showVideos()}
             </div>  
         );//end of return  

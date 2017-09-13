@@ -28,12 +28,21 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div className='header-container'>
-                <h1 >SRC | HUB</h1>
-
-                <input type="text" placeholder='Search News...' onChange={event => this.setState({search:event.target.value})} />
-                <button onClick={() => this.searchNews()} >Search</button>
+            
+            <div className='container header' >
+                <img src="views/image/srchub-logo_2.png" alt="" id='logo'/>
+            <div name="col-md-6">
+                <div className="input-group">
+                
+                <span className="input-group-btn">
+                    <button className="btn btn-primary" type="button" onClick={ this.searchNews.bind(this) } >Go!</button>
+                </span>
+                <input type="text" className="form-control" placeholder="Search for..." onChange={ event => this.setState({search:event.target.value}) } />
             </div>
+            </div>
+            </div>
+
+
         );//end of return
     }//end of render
 

@@ -27623,12 +27623,39 @@ var store = (0, _redux.createStore)(_allReducers2.default, (0, _redux.applyMiddl
     { store: store },
     _react2.default.createElement(
         'div',
-        null,
-        _react2.default.createElement(_Header2.default, null),
-        _react2.default.createElement(_Giphy2.default, null),
-        _react2.default.createElement(_News2.default, null),
-        _react2.default.createElement(_App2.default, null),
-        _react2.default.createElement(_Youtube2.default, null)
+        { className: 'container' },
+        _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+                'div',
+                { className: 'col-md-12' },
+                _react2.default.createElement(_Header2.default, null)
+            )
+        ),
+        _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+                'div',
+                { className: 'col-md-6 tweetsB' },
+                _react2.default.createElement(_App2.default, null)
+            ),
+            _react2.default.createElement(
+                'div',
+                { className: 'col-md-6' },
+                _react2.default.createElement(_News2.default, null)
+            )
+        ),
+        _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+                'div',
+                { className: 'col-md-12 youtubeB' },
+                _react2.default.createElement(_Youtube2.default, null)
+            )
+        )
     )
 ), document.getElementById('root'));
 
@@ -42259,19 +42286,16 @@ var App = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
 
             var interval = setTimeout(this.startTweet.bind(this), 300000);
 
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'container', id: 'tweetsComponent' },
                 _react2.default.createElement(
-                    'button',
-                    { onClick: function onClick() {
-                            return _this2.startTweet(interval);
-                        } },
-                    'Start'
+                    'h1',
+                    null,
+                    'TWEETS'
                 ),
                 this.showTweets()
             );
@@ -42661,9 +42685,9 @@ var News = function (_React$Component) {
                 'div',
                 null,
                 _react2.default.createElement(
-                    'button',
-                    { onClick: this.start.bind(this) },
-                    'Start'
+                    'h1',
+                    null,
+                    'NEW YORK TIMES'
                 ),
                 this.showNews()
             ); //end of return
@@ -42774,11 +42798,6 @@ var Youtube = function (_React$Component) {
                 _react2.default.createElement(
                     'h1',
                     null,
-                    'Hello YOutube'
-                ),
-                _react2.default.createElement(
-                    'button',
-                    { onClick: this.handleYoutube.bind(this) },
                     'Youtube'
                 ),
                 this.showVideos()
@@ -42992,21 +43011,27 @@ var Header = function (_React$Component) {
 
             return _react2.default.createElement(
                 'div',
-                { className: 'header-container' },
+                { className: 'container header' },
+                _react2.default.createElement('img', { src: 'views/image/srchub-logo_2.png', alt: '', id: 'logo' }),
                 _react2.default.createElement(
-                    'h1',
-                    null,
-                    'SRC | HUB'
-                ),
-                _react2.default.createElement('input', { type: 'text', placeholder: 'Search News...', onChange: function onChange(event) {
-                        return _this2.setState({ search: event.target.value });
-                    } }),
-                _react2.default.createElement(
-                    'button',
-                    { onClick: function onClick() {
-                            return _this2.searchNews();
-                        } },
-                    'Search'
+                    'div',
+                    { name: 'col-md-6' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'input-group' },
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'input-group-btn' },
+                            _react2.default.createElement(
+                                'button',
+                                { className: 'btn btn-primary', type: 'button', onClick: this.searchNews.bind(this) },
+                                'Go!'
+                            )
+                        ),
+                        _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Search for...', onChange: function onChange(event) {
+                                return _this2.setState({ search: event.target.value });
+                            } })
+                    )
                 )
             ); //end of return
         } //end of render
