@@ -39,10 +39,13 @@ render(
                 </div>
             </div>
             <div className = 'row' >
-                <div className="col-md-12 youtubeB" >
+                <div className="col-md-6 youtubeB" >
                     <Youtube/>
                 </div>
 
+                <div className="col-md-6 youtubeB" >
+                    <Giphy/>
+                </div>
                 
             </div>
            

@@ -27652,8 +27652,13 @@ var store = (0, _redux.createStore)(_allReducers2.default, (0, _redux.applyMiddl
             { className: 'row' },
             _react2.default.createElement(
                 'div',
-                { className: 'col-md-12 youtubeB' },
+                { className: 'col-md-6 youtubeB' },
                 _react2.default.createElement(_Youtube2.default, null)
+            ),
+            _react2.default.createElement(
+                'div',
+                { className: 'col-md-6 youtubeB' },
+                _react2.default.createElement(_Giphy2.default, null)
             )
         )
     )
