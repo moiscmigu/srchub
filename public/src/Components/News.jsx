@@ -37,25 +37,24 @@ class News extends React.Component {
 
             
             return (
-                <div className='tweets-container-2' >
-                    {
+               
                         news.map((n, i) => {
 
                             return (
                                 n.map((m, j) => {
 
                                     return (
-                                        <div key={j}>
+
+                                        <blockquote className="blockquote mb-0" id='giphyBlockquote'>
                                             <a href={m.web_url} target= "_blank" ><h5><strong>{m.headline.main}</strong> </h5></a>
-                                            
-                                        </div>
+                                        </blockquote>
+                                        
                                     );
                                 })
                                 
                             );
                         })
-                    }
-                </div>
+                   
             )
         }
        
@@ -63,10 +62,16 @@ class News extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>NEW YORK TIMES</h1>
+            <div className="card" id='newsComponent' style={{"margin": "2em 0 2em 0"}}>
+                <div className="card-header">
+                    <h5>New york times</h5>
+                </div>
+                <div className="card-body" id='giphycard'>
                 {this.showNews()}
-            </div>  
+                </div>
+            </div>
+
+           
         );//end of return
     }//end of render
 

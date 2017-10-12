@@ -5,7 +5,7 @@ $(document).ready(onReady());
 function onReady() {
     
 
-    $(".navbar-form").submit(function (e) {
+    $("#headerForm").submit(function (e) {
         e.preventDefault();
         return false;
     });//end of voteSearchInput

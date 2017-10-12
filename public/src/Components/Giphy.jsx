@@ -28,9 +28,9 @@ class Giphy extends React.Component {
                         r.data.map((t, j) => {
 
                             return (
-                                <blockquote className="blockquote mb-0">
+                                <div className="blockquote mb-0" id='giphyBlockquote'>
                                     <img src={t.images.downsized.url} alt="gifs"/>
-                                </blockquote>
+                                </div>
                                     
 
                             )
@@ -47,9 +47,9 @@ class Giphy extends React.Component {
         return(
             <div className="card" id='giphyComponent' style={{"margin": "2em 0 2em 0"}}>
                 <div className="card-header">
-                    Giphy
+                    <h5>Gigphy</h5>
                 </div>
-                <div className="card-body">
+                <div className="card-body" id='giphycard'>
                     {this.showGifs()}
                 </div>
             </div>

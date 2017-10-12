@@ -5,51 +5,20 @@ body {
     line-height: 1.5;
 }
 
-nav {
-    color:#212529
+
+
+#giphyBlockquote {
+    display: inline-block;
 }
 
-
-
-#giphy {
-    border:1px solid red;
-    height: 40vh;
-    width:100vw;
+#newsComponent {
+    height:25em;
     overflow: scroll;
+    font-weight: 200;
+    line-height: 1.0;
 }
 
-#giphy-container {
-    border:2px solid blue;
-    height: inherit;
-    width: inherit;
-}
 
-#giphy-container img{
-    border:2px solid pink;
-    margin-right:3em;
-    padding: 0;
-    display: inline-block;
-    height: 20em;
-    width:20em;
-}
-
-#logo {
-
-    display: inline-block;
-    padding:0;
-    height:7em;
-    position: absolute;
-    margin:4em;
-    top:-12%;
-    left:-4.9em;
-
-  
-}
-
-.header {
-
-   margin-top:3em;
-}
 
 
 #tweetsComponent {
@@ -59,19 +28,20 @@ nav {
     line-height: 1.0;
 }
 
+#giphyComponent {
+    max-height: 25em;
+ 
+  overflow-x: hidden;
+  overflow-y: hidden
 
-.tweets {
-    margin: 1.5em;
-    color:white;
 }
 
-.tweetsB {
-    overflow-y: scroll
+
+
+#giphyComponent img{
+    height:10.3em;
+    width:10.3em;
+    margin:0.5em
+    
 }
 
-.youtubeB {
-    border: 1px solid white;
-    height:30em;
-    overflow-y: scroll;
-    overflow-x: scroll;
-}

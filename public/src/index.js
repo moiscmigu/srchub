@@ -41,16 +41,14 @@ render(
                 </div>
 
             </div>
-            
-            <div className = 'row' >
-                <div className="col-md-6 youtubeB" >
-                    <Youtube/>
+            <div className='row' >
+                <div className='col-md-12 col-xs-12 col-sm-12' >
+                <News/>
                 </div>
 
-                <div className="col-md-6 youtubeB" >
-                    <News/>
-                </div>
             </div>
+            
+           
         </div>
         
     </Provider>,

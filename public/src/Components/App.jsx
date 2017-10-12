@@ -43,7 +43,7 @@ class App extends React.Component {
                             task.tweet.map((t, j) => {
 
                                 return (
-                                    <blockquote className="blockquote mb-0">
+                                    <blockquote className="blockquote mb-0" id='giphyBlockquote'>
                                         <p>{t.text}</p>
                                         <footer className="blockquote-footer">{moment(new Date(t.created_at)).fromNow()}</footer>
                                     </blockquote>
@@ -64,8 +64,7 @@ class App extends React.Component {
         var interval = setTimeout(this.startTweet.bind(this), 300000);
         return(
             
-        <div className="card" id='tweetsComponent'>
-            <img src="https://www.antixapp.com/images/about_twitter.png" alt=""/>
+        <div className="card" id='tweetsComponent'  style={{"margin": "2em 0 2em 0"}}>
             <div className="card-header">
             
             </div>

@@ -27656,12 +27656,7 @@ var store = (0, _redux.createStore)(_allReducers2.default, (0, _redux.applyMiddl
             { className: 'row' },
             _react2.default.createElement(
                 'div',
-                { className: 'col-md-6 youtubeB' },
-                _react2.default.createElement(_Youtube2.default, null)
-            ),
-            _react2.default.createElement(
-                'div',
-                { className: 'col-md-6 youtubeB' },
+                { className: 'col-md-12 col-xs-12 col-sm-12' },
                 _react2.default.createElement(_News2.default, null)
             )
         )
@@ -42265,7 +42260,7 @@ var App = function (_React$Component) {
 
                         return _react2.default.createElement(
                             'blockquote',
-                            { className: 'blockquote mb-0' },
+                            { className: 'blockquote mb-0', id: 'giphyBlockquote' },
                             _react2.default.createElement(
                                 'p',
                                 null,
@@ -42292,8 +42287,7 @@ var App = function (_React$Component) {
             var interval = setTimeout(this.startTweet.bind(this), 300000);
             return _react2.default.createElement(
                 'div',
-                { className: 'card', id: 'tweetsComponent' },
-                _react2.default.createElement('img', { src: 'https://www.antixapp.com/images/about_twitter.png', alt: '' }),
+                { className: 'card', id: 'tweetsComponent', style: { "margin": "2em 0 2em 0" } },
                 _react2.default.createElement('div', { className: 'card-header' }),
                 _react2.default.createElement(
                     'div',
@@ -42650,34 +42644,30 @@ var News = function (_React$Component) {
                 );
             } else {
 
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'tweets-container-2' },
-                    news.map(function (n, i) {
+                return news.map(function (n, i) {
 
-                        return n.map(function (m, j) {
+                    return n.map(function (m, j) {
 
-                            return _react2.default.createElement(
-                                'div',
-                                { key: j },
+                        return _react2.default.createElement(
+                            'blockquote',
+                            { className: 'blockquote mb-0', id: 'giphyBlockquote' },
+                            _react2.default.createElement(
+                                'a',
+                                { href: m.web_url, target: '_blank' },
                                 _react2.default.createElement(
-                                    'a',
-                                    { href: m.web_url, target: '_blank' },
+                                    'h5',
+                                    null,
                                     _react2.default.createElement(
-                                        'h5',
+                                        'strong',
                                         null,
-                                        _react2.default.createElement(
-                                            'strong',
-                                            null,
-                                            m.headline.main
-                                        ),
-                                        ' '
-                                    )
+                                        m.headline.main
+                                    ),
+                                    ' '
                                 )
-                            );
-                        });
-                    })
-                );
+                            )
+                        );
+                    });
+                });
             }
         } //end showNews
 
@@ -42686,13 +42676,21 @@ var News = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'card', id: 'newsComponent', style: { "margin": "2em 0 2em 0" } },
                 _react2.default.createElement(
-                    'h1',
-                    null,
-                    'NEW YORK TIMES'
+                    'div',
+                    { className: 'card-header' },
+                    _react2.default.createElement(
+                        'h5',
+                        null,
+                        'New york times'
+                    )
                 ),
-                this.showNews()
+                _react2.default.createElement(
+                    'div',
+                    { className: 'card-body', id: 'giphycard' },
+                    this.showNews()
+                )
             ); //end of return
         } //end of render
 
@@ -42885,8 +42883,8 @@ var Giphy = function (_React$Component) {
                     return r.data.map(function (t, j) {
 
                         return _react2.default.createElement(
-                            'blockquote',
-                            { className: 'blockquote mb-0' },
+                            'div',
+                            { className: 'blockquote mb-0', id: 'giphyBlockquote' },
                             _react2.default.createElement('img', { src: t.images.downsized.url, alt: 'gifs' })
                         );
                     }) //end of loop
@@ -42906,11 +42904,15 @@ var Giphy = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'card-header' },
-                    'Giphy'
+                    _react2.default.createElement(
+                        'h5',
+                        null,
+                        'Gigphy'
+                    )
                 ),
                 _react2.default.createElement(
                     'div',
-                    { className: 'card-body' },
+                    { className: 'card-body', id: 'giphycard' },
                     this.showGifs()
                 )
             );
@@ -43003,7 +43005,7 @@ var Header = function (_React$Component) {
 
             return _react2.default.createElement(
                 'nav',
-                { className: 'navbar navbar-default', role: 'navigation' },
+                { className: 'navbar navbar-default', role: 'navigation', style: { "textAlign": "center" } },
                 _react2.default.createElement(
                     'div',
                     { className: 'navbar-header' },
@@ -43027,96 +43029,13 @@ var Header = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     'div',
-                    { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
-                    _react2.default.createElement(
-                        'ul',
-                        { className: 'nav navbar-nav' },
-                        _react2.default.createElement(
-                            'li',
-                            { className: 'active' },
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#' },
-                                'Link'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            null,
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#' },
-                                'Link'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            { className: 'dropdown' },
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown' },
-                                'Dropdown ',
-                                _react2.default.createElement('b', { className: 'caret' })
-                            ),
-                            _react2.default.createElement(
-                                'ul',
-                                { className: 'dropdown-menu' },
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        'Action'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        'Another action'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        'Something else here'
-                                    )
-                                ),
-                                _react2.default.createElement('li', { className: 'divider' }),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        'Separated link'
-                                    )
-                                ),
-                                _react2.default.createElement('li', { className: 'divider' }),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        'One more separated link'
-                                    )
-                                )
-                            )
-                        )
-                    ),
+                    { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1', style: { "textAlign": "center" } },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-sm-3 col-md-3' },
+                        { className: 'col-sm-3 col-md-3', style: { "margin": "auto" } },
                         _react2.default.createElement(
                             'div',
-                            { className: 'input-group' },
+                            { className: 'input-group', style: { "textAlign": "center" } },
                             _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Search', name: 'q', onChange: function onChange(event) {
                                     return _this2.setState({ search: event.target.value });
                                 } }),
@@ -43127,70 +43046,6 @@ var Header = function (_React$Component) {
                                     'button',
                                     { className: 'btn btn-default', type: 'submit', onClick: this.searchNews.bind(this) },
                                     _react2.default.createElement('i', { className: 'glyphicon glyphicon-search' })
-                                )
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'ul',
-                        { className: 'nav navbar-nav navbar-right' },
-                        _react2.default.createElement(
-                            'li',
-                            null,
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#' },
-                                'Link'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'li',
-                            { className: 'dropdown' },
-                            _react2.default.createElement(
-                                'a',
-                                { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown' },
-                                'Dropdown ',
-                                _react2.default.createElement('b', { className: 'caret' })
-                            ),
-                            _react2.default.createElement(
-                                'ul',
-                                { className: 'dropdown-menu' },
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        'Action'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        'Another action'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        'Something else here'
-                                    )
-                                ),
-                                _react2.default.createElement('li', { className: 'divider' }),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: '#' },
-                                        'Separated link'
-                                    )
                                 )
                             )
                         )
