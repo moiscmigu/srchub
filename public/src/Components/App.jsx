@@ -36,8 +36,6 @@ class App extends React.Component {
         let info = this.props.info.tweets;
 
         return (
-            <div className='tweets-container' >
-                {
                     info.map((task, i) => {
 
                         return (
@@ -45,22 +43,16 @@ class App extends React.Component {
                             task.tweet.map((t, j) => {
 
                                 return (
-                                    <div key={j} className='tweets' >
-                                        <p className='butt' >{t.text}</p>
-                                        <span><em>{moment(new Date(t.created_at)).fromNow()}</em> </span>
-                                    </div>
+                                    <blockquote className="blockquote mb-0">
+                                        <p>{t.text}</p>
+                                        <footer className="blockquote-footer">{moment(new Date(t.created_at)).fromNow()}</footer>
+                                    </blockquote>
                                 )
-                            })
+                            })//end of loop
                         );
-                    })
-
-
-
-                    
-                }
-            </div>
+                    })//end of loop
         );//end of return
-    }
+    }//end of else statement
 
     
         
@@ -69,17 +61,21 @@ class App extends React.Component {
 
 
     render(){
-       
         var interval = setTimeout(this.startTweet.bind(this), 300000);
-        
         return(
-            <div  className='container' id='tweetsComponent'>
-                <h1>TWEETS</h1>
-               {this.showTweets()}
+            
+        <div className="card" id='tweetsComponent'>
+            <img src="https://www.antixapp.com/images/about_twitter.png" alt=""/>
+            <div className="card-header">
+            
             </div>
+            <div className="card-body">
+                {this.showTweets()}
+            </div>
+        </div>
         );
-    }
-}
+    }//end of render
+}//end of Component
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({

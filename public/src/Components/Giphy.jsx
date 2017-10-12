@@ -12,30 +12,15 @@ class Giphy extends React.Component {
         };
     }
     
-   startGiphy() {
-
-
-    this.props.giphyAction().then(() => {
-        console.log('asdkfjbjkashdbfkjasdbmfknjhsvdfkxjv abdk');
-    });
-
-    
-
-    this.showGifs();
-   }//end of startGiphy
 
    showGifs() {
  
        let results = this.props.giphyImage.giphy;
 
     if(results.length === 0 || results === undefined) {
-        return (
-            <h1>No gifs yet</h1>
-        ) 
+        return false;
     } else {
         return (
-            <div id='giphy-container'>
-                {
                     results.map((r, i) => {
                         return(
 
@@ -43,28 +28,30 @@ class Giphy extends React.Component {
                         r.data.map((t, j) => {
 
                             return (
+                                <blockquote className="blockquote mb-0">
                                     <img src={t.images.downsized.url} alt="gifs"/>
+                                </blockquote>
+                                    
 
                             )
-                        })
-                        )
-                    })
-                }    
-            </div>
-           
-        );
-    }
-
-   }
+                        })//end of loop
+                        )//end of return 
+                    })//end of loop
+        );//end of return 
+    }//end of else statement
+   }//end of showGif
 
     render(){
        
         
         return(
-            <div id = 'giphy'>
-                <button onClick={() => this.startGiphy()} >Giphy</button>
-
-                {this.showGifs()}
+            <div className="card" id='giphyComponent' style={{"margin": "2em 0 2em 0"}}>
+                <div className="card-header">
+                    Giphy
+                </div>
+                <div className="card-body">
+                    {this.showGifs()}
+                </div>
             </div>
         );
     }
@@ -85,4 +72,5 @@ function mapStateToProps(state) {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Giphy);
+
 

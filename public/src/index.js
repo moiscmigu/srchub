@@ -24,32 +24,33 @@ render(
          
         <div className="container">
             <div className='row' >
-                <div className='col-md-12' >
-                <Header />
+                <div className='col-md-12 col-xs-12 col-sm-12' >
+                    <Header />
                 </div>
 
             </div>
-            <div className = 'row' >
-                <div className="col-md-6 tweetsB" >
+            <div className='row' >
+                <div className='col-md-12 col-xs-12 col-sm-12' >
                     <App/>
                 </div>
 
-                <div className="col-md-6">
-                    <News/>
-                </div>
             </div>
+            <div className='row' >
+                <div className='col-md-12 col-xs-12 col-sm-12' >
+                <Giphy/>
+                </div>
+
+            </div>
+            
             <div className = 'row' >
                 <div className="col-md-6 youtubeB" >
                     <Youtube/>
                 </div>
 
                 <div className="col-md-6 youtubeB" >
-                    <Giphy/>
+                    <News/>
                 </div>
-                
             </div>
-           
-         
         </div>
         
     </Provider>,

@@ -27629,7 +27629,7 @@ var store = (0, _redux.createStore)(_allReducers2.default, (0, _redux.applyMiddl
             { className: 'row' },
             _react2.default.createElement(
                 'div',
-                { className: 'col-md-12' },
+                { className: 'col-md-12 col-xs-12 col-sm-12' },
                 _react2.default.createElement(_Header2.default, null)
             )
         ),
@@ -27638,13 +27638,17 @@ var store = (0, _redux.createStore)(_allReducers2.default, (0, _redux.applyMiddl
             { className: 'row' },
             _react2.default.createElement(
                 'div',
-                { className: 'col-md-6 tweetsB' },
+                { className: 'col-md-12 col-xs-12 col-sm-12' },
                 _react2.default.createElement(_App2.default, null)
-            ),
+            )
+        ),
+        _react2.default.createElement(
+            'div',
+            { className: 'row' },
             _react2.default.createElement(
                 'div',
-                { className: 'col-md-6' },
-                _react2.default.createElement(_News2.default, null)
+                { className: 'col-md-12 col-xs-12 col-sm-12' },
+                _react2.default.createElement(_Giphy2.default, null)
             )
         ),
         _react2.default.createElement(
@@ -27658,7 +27662,7 @@ var store = (0, _redux.createStore)(_allReducers2.default, (0, _redux.applyMiddl
             _react2.default.createElement(
                 'div',
                 { className: 'col-md-6 youtubeB' },
-                _react2.default.createElement(_Giphy2.default, null)
+                _react2.default.createElement(_News2.default, null)
             )
         )
     )
@@ -42255,60 +42259,54 @@ var App = function (_React$Component) {
             } else {
                 var info = this.props.info.tweets;
 
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'tweets-container' },
-                    info.map(function (task, i) {
+                return info.map(function (task, i) {
 
-                        return task.tweet.map(function (t, j) {
+                    return task.tweet.map(function (t, j) {
 
-                            return _react2.default.createElement(
-                                'div',
-                                { key: j, className: 'tweets' },
-                                _react2.default.createElement(
-                                    'p',
-                                    { className: 'butt' },
-                                    t.text
-                                ),
-                                _react2.default.createElement(
-                                    'span',
-                                    null,
-                                    _react2.default.createElement(
-                                        'em',
-                                        null,
-                                        (0, _moment2.default)(new Date(t.created_at)).fromNow()
-                                    ),
-                                    ' '
-                                )
-                            );
-                        });
-                    })
-                ); //end of return
-            }
+                        return _react2.default.createElement(
+                            'blockquote',
+                            { className: 'blockquote mb-0' },
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                t.text
+                            ),
+                            _react2.default.createElement(
+                                'footer',
+                                { className: 'blockquote-footer' },
+                                (0, _moment2.default)(new Date(t.created_at)).fromNow()
+                            )
+                        );
+                    }) //end of loop
+                    ;
+                }) //end of loop
+                ; //end of return
+            } //end of else statement
+
         } //end of tweets
 
 
     }, {
         key: 'render',
         value: function render() {
-
             var interval = setTimeout(this.startTweet.bind(this), 300000);
-
             return _react2.default.createElement(
                 'div',
-                { className: 'container', id: 'tweetsComponent' },
+                { className: 'card', id: 'tweetsComponent' },
+                _react2.default.createElement('img', { src: 'https://www.antixapp.com/images/about_twitter.png', alt: '' }),
+                _react2.default.createElement('div', { className: 'card-header' }),
                 _react2.default.createElement(
-                    'h1',
-                    null,
-                    'TWEETS'
-                ),
-                this.showTweets()
+                    'div',
+                    { className: 'card-body' },
+                    this.showTweets()
+                )
             );
-        }
+        } //end of render
+
     }]);
 
     return App;
-}(_react2.default.Component);
+}(_react2.default.Component); //end of Component
 
 function mapDispatchToProps(dispatch) {
     return (0, _redux.bindActionCreators)({
@@ -42875,57 +42873,46 @@ var Giphy = function (_React$Component) {
     }
 
     _createClass(Giphy, [{
-        key: 'startGiphy',
-        value: function startGiphy() {
-
-            this.props.giphyAction().then(function () {
-                console.log('asdkfjbjkashdbfkjasdbmfknjhsvdfkxjv abdk');
-            });
-
-            this.showGifs();
-        } //end of startGiphy
-
-    }, {
         key: 'showGifs',
         value: function showGifs() {
 
             var results = this.props.giphyImage.giphy;
 
             if (results.length === 0 || results === undefined) {
-                return _react2.default.createElement(
-                    'h1',
-                    null,
-                    'No gifs yet'
-                );
+                return false;
             } else {
-                return _react2.default.createElement(
-                    'div',
-                    { id: 'giphy-container' },
-                    results.map(function (r, i) {
-                        return r.data.map(function (t, j) {
+                return results.map(function (r, i) {
+                    return r.data.map(function (t, j) {
 
-                            return _react2.default.createElement('img', { src: t.images.downsized.url, alt: 'gifs' });
-                        });
-                    })
-                );
-            }
-        }
+                        return _react2.default.createElement(
+                            'blockquote',
+                            { className: 'blockquote mb-0' },
+                            _react2.default.createElement('img', { src: t.images.downsized.url, alt: 'gifs' })
+                        );
+                    }) //end of loop
+                    ; //end of return 
+                }) //end of loop
+                ; //end of return 
+            } //end of else statement
+        } //end of showGif
+
     }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
 
             return _react2.default.createElement(
                 'div',
-                { id: 'giphy' },
+                { className: 'card', id: 'giphyComponent', style: { "margin": "2em 0 2em 0" } },
                 _react2.default.createElement(
-                    'button',
-                    { onClick: function onClick() {
-                            return _this2.startGiphy();
-                        } },
+                    'div',
+                    { className: 'card-header' },
                     'Giphy'
                 ),
-                this.showGifs()
+                _react2.default.createElement(
+                    'div',
+                    { className: 'card-body' },
+                    this.showGifs()
+                )
             );
         }
     }]);
@@ -42999,9 +42986,9 @@ var Header = function (_React$Component) {
     _createClass(Header, [{
         key: 'searchNews',
         value: function searchNews() {
+            console.log('searching the news...');
 
             var search = this.state.search;
-            console.log('asdfasdf', this.props);
             this.props.giphyAction(search);
             this.props.news(search);
             this.props.tweet(search);
@@ -43015,27 +43002,198 @@ var Header = function (_React$Component) {
             var _this2 = this;
 
             return _react2.default.createElement(
-                'div',
-                { className: 'container header' },
-                _react2.default.createElement('img', { src: 'views/image/srchub-logo_2.png', alt: '', id: 'logo' }),
+                'nav',
+                { className: 'navbar navbar-default', role: 'navigation' },
                 _react2.default.createElement(
                     'div',
-                    { name: 'col-md-6' },
+                    { className: 'navbar-header' },
                     _react2.default.createElement(
-                        'div',
-                        { className: 'input-group' },
+                        'button',
+                        { type: 'button', className: 'navbar-toggle', 'data-toggle': 'collapse', 'data-target': '#bs-example-navbar-collapse-1' },
                         _react2.default.createElement(
                             'span',
-                            { className: 'input-group-btn' },
+                            { className: 'sr-only' },
+                            'Toggle navigation'
+                        ),
+                        _react2.default.createElement('span', { className: 'icon-bar' }),
+                        _react2.default.createElement('span', { className: 'icon-bar' }),
+                        _react2.default.createElement('span', { className: 'icon-bar' })
+                    ),
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'navbar-brand', href: '#' },
+                        'srcHub'
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
+                    _react2.default.createElement(
+                        'ul',
+                        { className: 'nav navbar-nav' },
+                        _react2.default.createElement(
+                            'li',
+                            { className: 'active' },
                             _react2.default.createElement(
-                                'button',
-                                { className: 'btn btn-primary', type: 'button', onClick: this.searchNews.bind(this) },
-                                'Go!'
+                                'a',
+                                { href: '#' },
+                                'Link'
                             )
                         ),
-                        _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Search for...', onChange: function onChange(event) {
-                                return _this2.setState({ search: event.target.value });
-                            } })
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            _react2.default.createElement(
+                                'a',
+                                { href: '#' },
+                                'Link'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            { className: 'dropdown' },
+                            _react2.default.createElement(
+                                'a',
+                                { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown' },
+                                'Dropdown ',
+                                _react2.default.createElement('b', { className: 'caret' })
+                            ),
+                            _react2.default.createElement(
+                                'ul',
+                                { className: 'dropdown-menu' },
+                                _react2.default.createElement(
+                                    'li',
+                                    null,
+                                    _react2.default.createElement(
+                                        'a',
+                                        { href: '#' },
+                                        'Action'
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'li',
+                                    null,
+                                    _react2.default.createElement(
+                                        'a',
+                                        { href: '#' },
+                                        'Another action'
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'li',
+                                    null,
+                                    _react2.default.createElement(
+                                        'a',
+                                        { href: '#' },
+                                        'Something else here'
+                                    )
+                                ),
+                                _react2.default.createElement('li', { className: 'divider' }),
+                                _react2.default.createElement(
+                                    'li',
+                                    null,
+                                    _react2.default.createElement(
+                                        'a',
+                                        { href: '#' },
+                                        'Separated link'
+                                    )
+                                ),
+                                _react2.default.createElement('li', { className: 'divider' }),
+                                _react2.default.createElement(
+                                    'li',
+                                    null,
+                                    _react2.default.createElement(
+                                        'a',
+                                        { href: '#' },
+                                        'One more separated link'
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-sm-3 col-md-3' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'input-group' },
+                            _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Search', name: 'q', onChange: function onChange(event) {
+                                    return _this2.setState({ search: event.target.value });
+                                } }),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'input-group-btn' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { className: 'btn btn-default', type: 'submit', onClick: this.searchNews.bind(this) },
+                                    _react2.default.createElement('i', { className: 'glyphicon glyphicon-search' })
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'ul',
+                        { className: 'nav navbar-nav navbar-right' },
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            _react2.default.createElement(
+                                'a',
+                                { href: '#' },
+                                'Link'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            { className: 'dropdown' },
+                            _react2.default.createElement(
+                                'a',
+                                { href: '#', className: 'dropdown-toggle', 'data-toggle': 'dropdown' },
+                                'Dropdown ',
+                                _react2.default.createElement('b', { className: 'caret' })
+                            ),
+                            _react2.default.createElement(
+                                'ul',
+                                { className: 'dropdown-menu' },
+                                _react2.default.createElement(
+                                    'li',
+                                    null,
+                                    _react2.default.createElement(
+                                        'a',
+                                        { href: '#' },
+                                        'Action'
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'li',
+                                    null,
+                                    _react2.default.createElement(
+                                        'a',
+                                        { href: '#' },
+                                        'Another action'
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'li',
+                                    null,
+                                    _react2.default.createElement(
+                                        'a',
+                                        { href: '#' },
+                                        'Something else here'
+                                    )
+                                ),
+                                _react2.default.createElement('li', { className: 'divider' }),
+                                _react2.default.createElement(
+                                    'li',
+                                    null,
+                                    _react2.default.createElement(
+                                        'a',
+                                        { href: '#' },
+                                        'Separated link'
+                                    )
+                                )
+                            )
+                        )
                     )
                 )
             ); //end of return

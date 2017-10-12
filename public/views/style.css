@@ -1,6 +1,15 @@
 body {
-    background-color: #3f30eb;
+    background-color: #212529;
+    color:white;
+    font-weight: 400;
+    line-height: 1.5;
 }
+
+nav {
+    color:#212529
+}
+
+
 
 #giphy {
     border:1px solid red;
@@ -44,9 +53,10 @@ body {
 
 
 #tweetsComponent {
-
-    height:30em;
+    height:25em;
     overflow: scroll;
+    font-weight: 200;
+    line-height: 1.0;
 }
 
 

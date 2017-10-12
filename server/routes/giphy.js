@@ -12,10 +12,6 @@ router.post('/', (req, res) => {
         res.send(response);
     }); //end of request
 
-
-
-
-
 }); //end of post
 
 

@@ -8,7 +8,7 @@ let express = require('express'),
     giphy = require('./routes/giphy');
 
 
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 2000;
 
 //USES
 app.use(express.static('public'));
