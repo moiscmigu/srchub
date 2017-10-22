@@ -25,18 +25,16 @@ class Youtube extends React.Component {
                 <h1>There is nothing to show yet</h1>
             );
         } else {
-            console.log('true')
             return (
                 <div>
                     {
                         vids.map((v, i) => {
-                            console.log('inside of the loop', v);
                             return (
                                 v.map((f, j) => {
                                     console.log('insid eof the second loop', f.id.videoId)
                                     let videoSrc = "//www.youtube.com/embed/" +  f.id.videoId;
                                     return (
-                                        <iframe  height="600" width="600" src={videoSrc}  allowFullScreen ></iframe>
+                                        <iframe  height="200" width="300" src={videoSrc}  allowFullScreen ></iframe>
                                     )
                                 })
                             )

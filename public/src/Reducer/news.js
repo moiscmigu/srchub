@@ -8,8 +8,7 @@ const newsCallReducer = (state=[], action) => {
     switch(action.type) {
         case "NEWS":
             let data = action.payload.data.response.docs;
-            state = [...state, data]
-            console.log('this is the state that i am sending', state)
+            state = [data]
             return state;
         default: 
             return state;

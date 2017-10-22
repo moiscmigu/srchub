@@ -27659,6 +27659,15 @@ var store = (0, _redux.createStore)(_allReducers2.default, (0, _redux.applyMiddl
                 { className: 'col-md-12 col-xs-12 col-sm-12' },
                 _react2.default.createElement(_News2.default, null)
             )
+        ),
+        _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+                'div',
+                { className: 'col-md-12 col-xs-12 col-sm-12' },
+                _react2.default.createElement(_Youtube2.default, null)
+            )
         )
     )
 ), document.getElementById('root'));
@@ -41152,20 +41161,18 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 var tweetCallReducer = function tweetCallReducer() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     var action = arguments[1];
 
     var tweet = void 0;
     var news = void 0;
+
     switch (action.type) {
         case "TWEET":
 
-            tweet = [].concat(_toConsumableArray(state), [{ tweet: action.payload.data }]);
-            console.log('this is the tweet', tweet);
-            return tweet;
+            state = [{ tweet: action.payload.data }];
+            return state;
         default:
             return state;
     } //end of switch
@@ -42058,8 +42065,6 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 var newsCallReducer = function newsCallReducer() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     var action = arguments[1];
@@ -42068,8 +42073,7 @@ var newsCallReducer = function newsCallReducer() {
     switch (action.type) {
         case "NEWS":
             var data = action.payload.data.response.docs;
-            state = [].concat(_toConsumableArray(state), [data]);
-            console.log('this is the state that i am sending', state);
+            state = [data];
             return state;
         default:
             return state;
@@ -42095,8 +42099,6 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 var youtubeReducer = function youtubeReducer() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     var action = arguments[1];
@@ -42106,7 +42108,7 @@ var youtubeReducer = function youtubeReducer() {
         case "YOUTUBE":
 
             videoData = action.payload.data.items;
-            state = [].concat(_toConsumableArray(state), [videoData]);
+            state = [videoData];
             return state;
         default:
             return state;
@@ -42132,8 +42134,6 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 var giphyReducer = function giphyReducer() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     var action = arguments[1];
@@ -42142,7 +42142,7 @@ var giphyReducer = function giphyReducer() {
     switch (action.type) {
         case "GIPHY":
             jifs = JSON.parse(action.payload.data.body);
-            state = [].concat(_toConsumableArray(state), [jifs]);
+            state = [jifs];
             return state;
         default:
             return state;
@@ -42775,16 +42775,14 @@ var Youtube = function (_React$Component) {
                     'There is nothing to show yet'
                 );
             } else {
-                console.log('true');
                 return _react2.default.createElement(
                     'div',
                     null,
                     vids.map(function (v, i) {
-                        console.log('inside of the loop', v);
                         return v.map(function (f, j) {
                             console.log('insid eof the second loop', f.id.videoId);
                             var videoSrc = "//www.youtube.com/embed/" + f.id.videoId;
-                            return _react2.default.createElement('iframe', { height: '600', width: '600', src: videoSrc, allowFullScreen: true });
+                            return _react2.default.createElement('iframe', { height: '200', width: '300', src: videoSrc, allowFullScreen: true });
                         });
                     })
                 );

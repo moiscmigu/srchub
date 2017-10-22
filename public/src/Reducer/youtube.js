@@ -9,7 +9,7 @@ const youtubeReducer = (state=[], action) => {
         case "YOUTUBE":
 
             videoData = action.payload.data.items
-            state = [...state, videoData]
+            state = [videoData]
             return state;
         default: 
             return state;

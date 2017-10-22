@@ -27,30 +27,28 @@ render(
                 <div className='col-md-12 col-xs-12 col-sm-12' >
                     <Header />
                 </div>
-
             </div>
             <div className='row' >
                 <div className='col-md-12 col-xs-12 col-sm-12' >
                     <App/>
                 </div>
-
             </div>
             <div className='row' >
                 <div className='col-md-12 col-xs-12 col-sm-12' >
-                <Giphy/>
+                    <Giphy/>
                 </div>
-
             </div>
             <div className='row' >
                 <div className='col-md-12 col-xs-12 col-sm-12' >
-                <News/>
+                    <News/>
                 </div>
-
             </div>
-            
-           
-        </div>
-        
+            <div className='row' >
+                <div className='col-md-12 col-xs-12 col-sm-12' >
+                    <Youtube/>
+                </div>
+            </div>
+        </div> 
     </Provider>,
     
     document.getElementById('root'))

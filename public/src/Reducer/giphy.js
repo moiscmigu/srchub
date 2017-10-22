@@ -8,7 +8,7 @@ const giphyReducer = (state=[], action) => {
     switch(action.type) {
         case "GIPHY":
             jifs  = JSON.parse(action.payload.data.body);
-            state =  [...state, jifs];
+            state =  [jifs];
             return state;
         default: 
             return state;
