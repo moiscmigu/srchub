@@ -1,12 +1,13 @@
 let express = require('express'),
     router = express.Router();
 
+const YOUTUBESETKEY = process.env.YOUTUBESETKEY;
 
-    var YouTube = require('youtube-node');
-    
-    var youTube = new YouTube();
-    
-    youTube.setKey('AIzaSyBHQu4MdQ_J32BGf1-70LQTS4KcYgAzCcQ');
+let YouTube = require('youtube-node');
+
+let youTube = new YouTube();
+
+youTube.setKey(YOUTUBESETKEY);
     
     
 
@@ -21,15 +22,9 @@ router.post('/', (req, res) => {
           console.log(error);
         }
         else {
-          console.log(JSON.stringify(result, null, 2));
           res.send(result);
         }
       });
-
-    
-
-
-
 });
 
 

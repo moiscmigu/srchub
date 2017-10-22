@@ -1,13 +1,20 @@
 let express = require('express'),
     router = express.Router();
 
+
+
+const CONSUMERKEYTWIT = process.env.CONSUMERKEYTWIT;
+const CONSUMERSECRETTWIT = process.env.CONSUMERSECRETTWIT;
+const ACCESSTOKENTWIT = process.env.ACCESSTOKENTWIT;
+const ACCESSTOKENSECRETTWIT = process.env.ACCESSTOKENSECRETTWIT;
+    
 let Twit = require('twit');
 
 let T = new Twit({
-    consumer_key:         'swwVChp2pR7kl5Ay8ELWq4UVR',
-    consumer_secret:      'WDtiBqEXsfnb6YCdWEIzhFPSijAdpmcOr14DEeHEfV1AYJ6aQ5',
-    access_token:         '905539359117541377-IRuKv5bJJ9nwU8jsXo43erbfRpnKyLl',
-    access_token_secret:  'nSMDG6pZEDvHhTsNqtXDhTahGTh4ecmgpL1xgPyIjw750'
+    consumer_key:         CONSUMERKEYTWIT,
+    consumer_secret:      CONSUMERSECRETTWIT,
+    access_token:         ACCESSTOKENTWIT,
+    access_token_secret:  ACCESSTOKENSECRETTWIT
     });
 
 
@@ -16,7 +23,6 @@ let T = new Twit({
 router.post('/', (req, res) => {
     
     let counter = Math.floor(Math.random() * 50)
-    console.log('TWEET URL HIT', req.body)
     
 
 

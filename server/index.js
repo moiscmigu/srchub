@@ -1,3 +1,8 @@
+require('dotenv').config({
+    path:"./.env"
+});
+
+
 let express = require('express'),
     app = express(),
     path = require('path')
