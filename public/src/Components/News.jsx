@@ -26,13 +26,9 @@ class News extends React.Component {
 
         if(news.length  === 0) {
             if (news.length -1  === 0) {
-                return (
-                    <h1>Nothing Yet</h1>
-                );
+                return false;
             }
-            return (
-                <h1>Nothing Yet</h1>
-            );
+            return false;
         } else {
 
             
@@ -64,7 +60,7 @@ class News extends React.Component {
         return (
             <div className="card" id='newsComponent' style={{"margin": "2em 0 2em 0"}}>
                 <div className="card-header">
-                    <h5>New york times</h5>
+                    <h4>New York Times</h4>
                 </div>
                 <div className="card-body" id='giphycard'>
                 {this.showNews()}

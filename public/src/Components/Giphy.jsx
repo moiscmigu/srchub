@@ -47,7 +47,7 @@ class Giphy extends React.Component {
         return(
             <div className="card" id='giphyComponent' style={{"margin": "2em 0 2em 0"}}>
                 <div className="card-header">
-                    <h5>Gigphy</h5>
+                    <h4>Gigphy</h4>
                 </div>
                 <div className="card-body" id='giphycard'>
                     {this.showGifs()}

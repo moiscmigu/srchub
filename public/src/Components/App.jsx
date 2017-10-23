@@ -43,7 +43,7 @@ class App extends React.Component {
                             task.tweet.map((t, j) => {
 
                                 return (
-                                    <blockquote className="blockquote mb-0" id='giphyBlockquote'>
+                                    <blockquote className="blockquote mb-0" id='giphyBlockquote' style={{"display": "inline-block"}}>
                                         <p>{t.text}</p>
                                         <footer className="blockquote-footer">{moment(new Date(t.created_at)).fromNow()}</footer>
                                     </blockquote>
@@ -66,7 +66,7 @@ class App extends React.Component {
             
         <div className="card" id='tweetsComponent'  style={{"margin": "2em 0 2em 0"}}>
             <div className="card-header">
-            
+                <h4>Twitter</h4>
             </div>
             <div className="card-body">
                 {this.showTweets()}

@@ -43,7 +43,6 @@ class Header extends React.Component {
                  
                     <div className="col-sm-3 col-md-3" style={{"margin": "auto"}}>
                             <div className="input-group" style={{"textAlign": "center"}}>
-                                
                                 <input type="text" className="form-control" placeholder="Search" name="q" onChange={ event => this.setState({search:event.target.value}) } />
                                 <div className="input-group-btn">
                                     <button className="btn btn-default" type="submit" onClick={ this.searchNews.bind(this) } ><i className="glyphicon glyphicon-search"></i></button>

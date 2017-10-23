@@ -42260,7 +42260,7 @@ var App = function (_React$Component) {
 
                         return _react2.default.createElement(
                             'blockquote',
-                            { className: 'blockquote mb-0', id: 'giphyBlockquote' },
+                            { className: 'blockquote mb-0', id: 'giphyBlockquote', style: { "display": "inline-block" } },
                             _react2.default.createElement(
                                 'p',
                                 null,
@@ -42288,7 +42288,15 @@ var App = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 { className: 'card', id: 'tweetsComponent', style: { "margin": "2em 0 2em 0" } },
-                _react2.default.createElement('div', { className: 'card-header' }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'card-header' },
+                    _react2.default.createElement(
+                        'h4',
+                        null,
+                        'Twitter'
+                    )
+                ),
                 _react2.default.createElement(
                     'div',
                     { className: 'card-body' },
@@ -42631,17 +42639,9 @@ var News = function (_React$Component) {
 
             if (news.length === 0) {
                 if (news.length - 1 === 0) {
-                    return _react2.default.createElement(
-                        'h1',
-                        null,
-                        'Nothing Yet'
-                    );
+                    return false;
                 }
-                return _react2.default.createElement(
-                    'h1',
-                    null,
-                    'Nothing Yet'
-                );
+                return false;
             } else {
 
                 return news.map(function (n, i) {
@@ -42681,9 +42681,9 @@ var News = function (_React$Component) {
                     'div',
                     { className: 'card-header' },
                     _react2.default.createElement(
-                        'h5',
+                        'h4',
                         null,
-                        'New york times'
+                        'New York Times'
                     )
                 ),
                 _react2.default.createElement(
@@ -42795,7 +42795,7 @@ var Youtube = function (_React$Component) {
                 'div',
                 null,
                 _react2.default.createElement(
-                    'h1',
+                    'h4',
                     null,
                     'Youtube'
                 ),
@@ -42903,7 +42903,7 @@ var Giphy = function (_React$Component) {
                     'div',
                     { className: 'card-header' },
                     _react2.default.createElement(
-                        'h5',
+                        'h4',
                         null,
                         'Gigphy'
                     )
